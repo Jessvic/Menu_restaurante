@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú - El Sabor Moderno</title>
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Carga de la fuente Inter de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Aplicar la fuente Inter a toda la página */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Ajuste para el desplazamiento de anclas con la barra de navegación fija */
+        html {
+            scroll-padding-top: 60px; /* Ajusta este valor a la altura de tu nav */
+        }
+        /* Estilo para el spinner (será usado por JS) */
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border-left-color: #f59e0b;
+            animation: spin 1s ease infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-800">
+
+    <!-- 1. Encabezado (Header) con Imagen de Fondo -->
+    <header class="relative bg-cover bg-center h-96" style="background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=80');">
+        <!-- Capa oscura sobre la imagen para mejor legibilidad del texto -->
+        <div class="absolute inset-0 bg-black/60"></div>
+        
+        <!-- Contenido del Encabezado -->
+        <div class="relative z-10 flex flex-col justify-center items-center h-full text-white text-center px-4">
+            <h1 class="text-5xl sm:text-7xl font-black tracking-tight">El Sabor Moderno</h1>
+            <p class="mt-4 text-xl sm:text-2xl font-light">Cocina de Autor y Tradición</p>
+        </div>
+    </header>
+
+    <!-- 2. Barra de Navegación (Fija) -->
+    <nav class="sticky top-0 bg-white shadow-lg z-20">
+        <div class="max-w-5xl mx-auto flex justify-center space-x-6 sm:space-x-10 py-4 px-4 overflow-x-auto">
+            <a href="#entradas" class="font-bold text-stone-600 hover:text-amber-600 transition-colors duration-200 whitespace-nowrap text-sm sm:text-base">ENTRADAS</a>
+            <a href="#fuertes" class="font-bold text-stone-600 hover:text-amber-600 transition-colors duration-200 whitespace-nowrap text-sm sm:text-base">PLATOS FUERTES</a>
+            <a href="#postres" class="font-bold text-stone-600 hover:text-amber-600 transition-colors duration-200 whitespace-nowrap text-sm sm:text-base">POSTRES</a>
+            <a href="#bebidas" class="font-bold text-stone-600 hover:text-amber-600 transition-colors duration-200 whitespace-nowrap text-sm sm:text-base">BEBIDAS</a>
+        </div>
+    </nav>
+
+    <!-- 3. Contenido Principal del Menú -->
+    <main class="max-w-5xl mx-auto p-4 sm:p-10">
+
+        <!-- Sección: Entradas -->
+        <section id="entradas" class="mb-16">
+            <h2 class="text-4xl font-bold text-amber-700 text-center mb-10">Entradas</h2>
+            
+            <!-- Contenedor de artículos del menú -->
+            <div class="grid md:grid-cols-2 gap-8">
+                
+                <!-- Artículo 1 -->
+                <div class="flex flex-col sm:flex-row bg-white rounded-2xl shadow-lg overflow-hidden transition-shadow duration-300 hover:shadow-xl">
+                    <img class="w-full sm:w-48 h-56 sm:h-full object-cover" src="https://placehold.co/300x300/eab308/333?text=Bruschetta" alt="[Imagen de Bruschetta Clásica]">
+                    <div class="flex-1 p-5">
+                        <div class="flex justify-between items-start">
+                            <h3 class="text-xl font-bold text-stone-900">Bruschetta Clásica</h3>
+                            <span class="text-xl font-bold text-amber-600 whitespace-nowrap ml-4">$9.00</span>
+                        </div>
+                        <p class="text-stone-600 mt-2 text-sm">
+                            Pan rústico tostado con tomates frescos, albahaca, ajo y un toque de aceite de oliva virgen extra.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Artículo 2 -->
+                <div class="flex flex-col sm:flex-row bg-white rounded-2xl shadow-lg overflow-hidden transition-shadow duration-300 hover:shadow-xl">
+                    <img class="w-full sm:w-48 h-56 sm:h-full object-cover" src="https://placehold.co/300x300/d97706/333?text=Calamares" alt="[Imagen de Calamares Fritos]">
+                    <div class="flex-1 p-5">
+                        <div class="flex justify-between items-start">
+                            <h3 class="text-xl font-bold text-stone-900">Calamares Fritos</h3>
+                            <span class="text-xl font-bold text-amber-600 whitespace-nowrap ml-4">$12.00</span>
+                        </div>
+                        <p class="text-stone-600 mt-2 text-sm">
+                            Tiernos aros de calamar rebozados y fritos a la perfección. Servidos con alioli de limón.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Artículo 3 -->
+                <div class="flex flex-col sm:flex-row bg-white rounded-2xl shadow-lg overflow-hidden transition-shadow duration-300 hover:shadow-xl">
+                    <img class="w-full sm:w-48 h-56 sm:h-full object-cover" src="https://placehold.co/300x300/f59e0b/333?text=Caprese" alt="[Imagen de Ensalada Caprese]">
+                    <div class="flex-1 p-5">
+                        <div class="flex justify-between items-start">
+                            <h3 class="text-xl font-bold text-stone-900">Ensalada Caprese</h3>
+                            <span class="text-xl font-bold text-amber-600 whitespace-nowrap ml-4">$10.00</span>
+                        </div>
+                        <p class="text-stone-600 mt-2 text-sm">
+                            Rodajas de tomate fresco, mozzarella de búfala y albahaca fresca, aderezado con reducción de balsámico.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Sección: Platos Fuertes -->
+        <section id="fuertes" class="mb-16">
+            <h2 class="text-4xl font-bold text-amber-700 text-center mb-10">Platos Fuertes</h2>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                
+                <!-- Artículo 1 -->
+                <div class="flex flex-col sm:flex-row bg-white rounded-2xl shadow-lg overflow-hidden transition-shadow duration-300 hover:shadow-xl">
+                    <img class="w-full sm:w-48 h-56 sm:h-full object-cover" src="https://placehold.co/300x300/eab308/333?text=Salmón" alt="[Imagen de Salmón a la Parrilla]">
+                    <div class="flex-1 p-5">
+                        <div class="flex justify-between items-start">
+                            <h3 class="text-xl font-bold text-stone-900">Salmón a la Parrilla</h3>
+                            <span class="text-xl font-bold text-amber-600 whitespace-nowrap ml-4">$22.00</span>
+                        </div>
+                        <p class="text-stone-600 mt-2 text-sm">
+                            Filete de salmón fresco a la parrilla, servido sobre una cama de espárragos y con salsa de eneldo.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Artículo 2 -->
+                <div class="flex flex-col sm:flex-row bg-white rounded-2xl shadow-lg overflow-hidden transition-shadow duration-300 hover:shadow-xl">
+                    <img class="w-full sm:w-48 h-56 sm:h-full object-cover" src="https://placehold.co/300x300/d97706/333?text=Filete" alt="[Imagen de Filete Mignon]">
+                    <div class="flex-1 p-5">
+                        <div class="flex justify-between items-start">
+                            <h3 class="text-xl font-bold text-stone-900">Filete Mignon</h3>
+                            <span class="text-xl font-bold text-amber-600 whitespace-nowrap ml-4">$28.00</span>
+                        </div>
+                        <p class="text-stone-600 mt-2 text-sm">
+                            Corte premium de 250g cocido al término de su elección, con salsa de vino tinto y puré de patatas trufado.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Artículo 3 -->
+                <div class="flex flex-col sm:flex-row bg-white rounded-2xl shadow-lg overflow-hidden transition-shadow duration-300 hover:shadow-xl">
+                    <img class="w-full sm:w-48 h-56 sm:h-full object-cover" src="https://placehold.co/300x300/f59e0b/333?text=Pasta" alt="[Imagen de Pasta Carbonara]">
+                    <div class="flex-1 p-5">
+                        <div class="flex justify-between items-start">
+                            <h3 class="text-xl font-bold text-stone-900">Pasta Carbonara</h3>
+                            <span class="text-xl font-bold text-amber-600 whitespace-nowrap ml-4">$18.00</span>
+                        </div>
+                        <p class="text-stone-600 mt-2 text-sm">
+                            Pasta fresca con guanciale crujiente, yema de huevo, queso Pecorino Romano y pimienta negra.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Sección: Postres -->
+        <section id="postres" class="mb-16">
+            <h2 class="text-4xl font-bold text-amber-700 text-center mb-10">Postres</h2>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                
+                <!-- Artículo 1 -->
+                <div class="flex flex-col sm:flex-row bg-white rounded-2xl shadow-lg overflow-hidden transition-shadow duration-300 hover:shadow-xl">
+                    <img class="w-full sm:w-48 h-56 sm:h-full object-cover" src="https://placehold.co/300x300/eab308/333?text=Tiramisú" alt="[Imagen de Tiramisú]">
+                    <div class="flex-1 p-5">
+                        <div class="flex justify-between items-start">
+                            <h3 class="text-xl font-bold text-stone-900">Tiramisú Casero</h3>
+                            <span class="text-xl font-bold text-amber-600 whitespace-nowrap ml-4">$9.00</span>
+                        </div>
+                        <p class="text-stone-600 mt-2 text-sm">
+                            El clásico postre italiano. Capas de bizcocho de soletilla bañadas en café y crema de mascarpone.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Artículo 2 -->
+                <div class="flex flex-col sm:flex-row bg-white rounded-2xl shadow-lg overflow-hidden transition-shadow duration-300 hover:shadow-xl">
+                    <img class="w-full sm:w-48 h-56 sm:h-full object-cover" src="https://placehold.co/300x300/d97706/333?text=Volcán" alt="[Imagen de Volcán de Chocolate]">
+                    <div class="flex-1 p-5">
+                        <div class="flex justify-between items-start">
+                            <h3 class="text-xl font-bold text-stone-900">Volcán de Chocolate</h3>
+                            <span class="text-xl font-bold text-amber-600 whitespace-nowrap ml-4">$10.00</span>
+                        </div>
+                        <p class="text-stone-600 mt-2 text-sm">
+                            Bizcocho de chocolate caliente con un corazón de chocolate fundido. Servido con helado de vainilla.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Sección: Bebidas -->
+        <section id="bebidas" class="mb-16">
+            <h2 class="text-4xl font-bold text-amber-700 text-center mb-10">Bebidas</h2>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                
+                <!-- Artículo 1 -->
+                <div class="flex flex-col sm:flex-row bg-white rounded-2xl shadow-lg overflow-hidden transition-shadow duration-300 hover:shadow-xl">
+                    <img class="w-full sm:w-48 h-56 sm:h-full object-cover" src="https://placehold.co/300x300/eab308/333?text=Vino" alt="[Imagen de Vino de la Casa]">
+                    <div class="flex-1 p-5">
+                        <div class="flex justify-between items-start">
+                            <h3 class="text-xl font-bold text-stone-900">Vino de la Casa (Copa)</h3>
+                            <span class="text-xl font-bold text-amber-600 whitespace-nowrap ml-4">$7.00</span>
+                        </div>
+                        <p class="text-stone-600 mt-2 text-sm">
+                            Selección de tinto, blanco o rosado de nuestra bodega local.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Artículo 2 -->
+                <div class="flex flex-col sm:flex-row bg-white rounded-2xl shadow-lg overflow-hidden transition-shadow duration-300 hover:shadow-xl">
+                    <img class="w-full sm:w-48 h-56 sm:h-full object-cover" src="https://placehold.co/300x300/d97706/333?text=Limonada" alt="[Imagen de Limonada Fresca]">
+                    <div class="flex-1 p-5">
+                        <div class="flex justify-between items-start">
+                            <h3 class="text-xl font-bold text-stone-900">Limonada Fresca</h3>
+                            <span class="text-xl font-bold text-amber-600 whitespace-nowrap ml-4">$5.00</span>
+                        </div>
+                        <p class="text-stone-600 mt-2 text-sm">
+                            Hecha en casa con limones frescos y un toque de menta.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 4. Pie de Página (Footer) -->
+    <footer class="bg-stone-900 text-stone-300 p-10 text-center">
+        <p class="font-bold text-lg">El Sabor Moderno</p>
+        <p class="mt-2 text-sm">123 Calle Ficticia, Ciudad, País</p>
+        <p class="text-sm">Reservas: (123) 456-7890</p>
+        <p class="mt-6 text-xs text-stone-400">&copy; 2025 El Sabor Moderno. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- ============================================= -->
+    <!--     ✨ INICIO: Funcionalidad Gemini API ✨      -->
+    <!-- ============================================= -->
+
+    <!-- 1. Botón Flotante para abrir el modal -->
+    <button id="openModalBtn" class="fixed bottom-6 right-6 bg-amber-600 hover:bg-amber-700 text-white font-bold p-4 rounded-full shadow-xl transition-transform duration-200 hover:scale-105 z-30">
+        <span class="text-xl">✨</span>
+        <span class="hidden sm:inline-block ml-2">Recomendador IA</span>
+    </button>
+
+    <!-- 2. Modal del Recomendador -->
+    <div id="recommendationModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 flex justify-center items-center p-4 hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        
+        <!-- Contenedor del Modal -->
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden transform transition-all">
+            
+            <!-- Encabezado del Modal -->
+            <div class="flex justify-between items-center p-5 border-b border-stone-200">
+                <h3 id="modal-title" class="text-2xl font-bold text-amber-700">Recomendador IA ✨</h3>
+                <button id="closeModalBtn" class="text-stone-400 hover:text-stone-700 text-3xl">&times;</button>
+            </div>
+
+            <!-- Cuerpo del Modal -->
+            <div class="p-6">
+                <p class="text-stone-600 mb-4">¿No sabes qué pedir? ¡Describe tus antojos, preferencias o alergias y deja que nuestra IA te sugiera el plato perfecto!</p>
+                
+                <textarea id="userInput" class="w-full h-24 p-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:outline-none" placeholder="Ej: 'Soy vegetariano y me apetece algo ligero', 'Quiero el plato de carne más contundente', 'Busco un postre de chocolate...'"></textarea>
+
+                <button id="getRecommendationBtn" class="w-full mt-4 bg-amber-600 text-white font-bold py-3 px-5 rounded-lg hover:bg-amber-700 transition-colors duration-200 flex justify-center items-center">
+                    <span>Buscar Recomendación</span>
+                </button>
+
+                <!-- Área de Resultados y Errores -->
+                <div id="loadingIndicator" class="flex-col justify-center items-center mt-5 hidden">
+                    <div class="spinner"></div>
+                    <p class="mt-2 text-stone-600">Pensando en la sugerencia perfecta...</p>
+                </div>
+
+                <div id="recommendationError" class="mt-4 text-red-600 font-medium"></div>
+
+                <div id="recommendationResult" class="mt-5 p-4 bg-amber-50 border-l-4 border-amber-500 rounded-r-lg text-stone-700">
+                    <!-- El resultado de la IA aparecerá aquí -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. Script para la lógica del Modal y la API Gemini -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const openModalBtn = document.getElementById('openModalBtn');
+            const closeModalBtn = document.getElementById('closeModalBtn');
+            const modal = document.getElementById('recommendationModal');
+            const getRecommendationBtn = document.getElementById('getRecommendationBtn');
+            const userInput = document.getElementById('userInput');
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            const recommendationResult = document.getElementById('recommendationResult');
+            const recommendationError = document.getElementById('recommendationError');
+
+            const openModal = () => {
+                modal.classList.remove('hidden');
+                userInput.value = ''; // Limpiar campo
+                recommendationResult.innerHTML = ''; // Limpiar resultado anterior
+                recommendationError.textContent = ''; // Limpiar error anterior
+            };
+
+            const closeModal = () => {
+                modal.classList.add('hidden');
+            };
+
+            // Abrir y cerrar modal
+            openModalBtn.addEventListener('click', openModal);
+            closeModalBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                // Cerrar si se hace clic en el fondo oscuro
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+
+            // Lógica de la API de Gemini
+            const handleRecommendation = async () => {
+                const userQuery = userInput.value;
+                if (!userQuery.trim()) {
+                    recommendationError.textContent = 'Por favor, describe lo que te apetece.';
+                    return;
+                }
+
+                // Desactivar botón y mostrar spinner
+                getRecommendationBtn.disabled = true;
+                getRecommendationBtn.querySelector('span').textContent = 'Buscando...';
+                loadingIndicator.classList.remove('hidden');
+                loadingIndicator.classList.add('flex');
+                recommendationResult.innerHTML = '';
+                recommendationError.textContent = '';
+
+                // El menú (se puede extraer del DOM, pero es más robusto así para el prompt)
+                const menuString = `
+                    Entradas:
+                    - Bruschetta Clásica: Pan rústico tostado con tomates frescos, albahaca, ajo y aceite de oliva. ($9.00)
+                    - Calamares Fritos: Tiernos aros de calamar rebozados, servidos con alioli de limón. ($12.00)
+                    - Ensalada Caprese: Rodajas de tomate, mozzarella de búfala y albahaca fresca. ($10.00)
+
+                    Platos Fuertes:
+                    - Salmón a la Parrilla: Filete de salmón sobre espárragos con salsa de eneldo. ($22.00)
+                    - Filete Mignon: Corte premium de 250g con salsa de vino tinto y puré trufado. ($28.00)
+                    - Pasta Carbonara: Pasta fresca con guanciale, yema de huevo, Pecorino y pimienta. ($18.00)
+                    
+                    Postres:
+                    - Tiramisú Casero: Clásico postre italiano de café y mascarpone. ($9.00)
+                    - Volcán de Chocolate: Bizcocho caliente con corazón fundido y helado de vainilla. ($10.00)
+
+                    Bebidas:
+                    - Vino de la Casa (Copa): Tinto, blanco o rosado. ($7.00)
+                    - Limonada Fresca: Hecha en casa con menta. ($5.00)
+                `;
+
+                // Instrucción del sistema para el LLM
+                const systemPrompt = `Eres 'El Sabor Moderno', un asistente de restaurante amigable, experto y ligeramente poético. Tu trabajo es analizar nuestro menú y las preferencias del cliente para dar una recomendación útil y apetitosa.
+                
+                Reglas:
+                1. Responde siempre en español.
+                2. Basa tu recomendación ÚNICAMENTE en los platos del menú proporcionado.
+                3. Sé breve y directo (2-3 frases).
+                4. Menciona el plato recomendado por su nombre exacto.
+                5. Justifica por qué ese plato encaja con la petición del cliente.
+                6. Si la petición es vaga (ej. 'no sé qué comer'), sugiere un plato popular como el Filete Mignon o el Salmón.
+                7. Si la petición es vegetariana, sugiere la Ensalada Caprese o la Bruschetta.
+
+                Nuestro menú es el siguiente:
+                ${menuString}
+                `;
+
+                const apiKey = ""; // Dejar vacío, se gestionará en el entorno de ejecución
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+
+                const payload = {
+                    contents: [{ parts: [{ text: userQuery }] }],
+                    systemInstruction: {
+                        parts: [{ text: systemPrompt }]
+                    },
+                };
+
+                try {
+                    const response = await fetchWithRetry(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`Error de API: ${response.status} ${response.statusText}`);
+                    }
+
+                    const result = await response.json();
+                    const recommendation = result.candidates?.[0]?.content?.parts?.[0]?.text;
+
+                    if (recommendation) {
+                        // Usar innerHTML para interpretar saltos de línea como <br>
+                        recommendationResult.innerHTML = recommendation.replace(/\n/g, '<br>');
+                    } else {
+                        throw new Error("No se pudo obtener una recomendación.");
+                    }
+
+                } catch (error) {
+                    console.error("Error al llamar a Gemini API:", error);
+                    recommendationError.textContent = "Lo sentimos, no pudimos procesar tu solicitud. Por favor, inténtalo de nuevo más tarde.";
+                } finally {
+                    // Reactivar botón y ocultar spinner
+                    getRecommendationBtn.disabled = false;
+                    getRecommendationBtn.querySelector('span').textContent = 'Buscar Recomendación';
+                    loadingIndicator.classList.add('hidden');
+                    loadingIndicator.classList.remove('flex');
+                }
+            };
+
+            getRecommendationBtn.addEventListener('click', handleRecommendation);
+
+            /**
+             * Función de utilidad para reintentar fetch con backoff exponencial.
+             */
+            const fetchWithRetry = async (url, options, retries = 3, delay = 1000) => {
+                for (let i = 0; i < retries; i++) {
+                    try {
+                        const response = await fetch(url, options);
+                        if (!response.ok && (response.status === 429 || response.status >= 500)) {
+                            // Solo reintentar en errores de servidor o rate limiting
+                            throw new Error(`Error ${response.status}`);
+                        }
+                        return response; // Éxito
+                    } catch (error) {
+                        if (i === retries - 1) throw error; // Último reintento fallido
+                        // Esperar antes de reintentar
+                        await new Promise(resolve => setTimeout(resolve, delay * Math.pow(2, i)));
+                    }
+                }
+            };
+
+        });
+    </script>
+
+    <!-- ============================================= -->
+    <!--       ✨ FIN: Funcionalidad Gemini API ✨        -->
+    <!-- ============================================= -->
+
+</body>
+</html>
